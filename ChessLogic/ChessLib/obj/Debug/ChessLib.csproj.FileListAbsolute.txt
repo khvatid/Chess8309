@@ -1,0 +1,12 @@
+C:\Users\hv200\Desktop\programms\Chess\ChessLib\bin\Debug\ChessLib.dll
+C:\Users\hv200\Desktop\programms\Chess\ChessLib\bin\Debug\ChessLib.pdb
+C:\Users\hv200\Desktop\programms\Chess\ChessLib\obj\Debug\ChessLib.csprojAssemblyReference.cache
+C:\Users\hv200\Desktop\programms\Chess\ChessLib\obj\Debug\ChessLib.csproj.CoreCompileInputs.cache
+C:\Users\hv200\Desktop\programms\Chess\ChessLib\obj\Debug\ChessLib.dll
+C:\Users\hv200\Desktop\programms\Chess\ChessLib\obj\Debug\ChessLib.pdb
+C:\Users\hv200\Desktop\programms\ChessLogic\ChessLib\bin\Debug\ChessLib.dll
+C:\Users\hv200\Desktop\programms\ChessLogic\ChessLib\bin\Debug\ChessLib.pdb
+C:\Users\hv200\Desktop\programms\ChessLogic\ChessLib\obj\Debug\ChessLib.csprojAssemblyReference.cache
+C:\Users\hv200\Desktop\programms\ChessLogic\ChessLib\obj\Debug\ChessLib.csproj.CoreCompileInputs.cache
+C:\Users\hv200\Desktop\programms\ChessLogic\ChessLib\obj\Debug\ChessLib.dll
+C:\Users\hv200\Desktop\programms\ChessLogic\ChessLib\obj\Debug\ChessLib.pdb
