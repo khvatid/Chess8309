@@ -18,8 +18,8 @@ namespace ConsoleChess
                 Console.WriteLine(chess.fen);
                 Console.WriteLine(ChessToAscii(chess));
                 Console.WriteLine(chess.IsCheck() ? "CHECK" :"---");
-                foreach (string moves in chess.GetAllMoves())
-                    Console.WriteLine(moves);
+               // foreach (string moves in chess.GetAllMoves())
+                   // Console.WriteLine(moves);
                 Console.WriteLine();
                 Console.Write("=> ");
                 string move = Console.ReadLine();

@@ -8,3 +8,13 @@ C:\Users\hv200\Desktop\programms\Chess\ConsoleChess\obj\Release\ConsoleChess.csp
 C:\Users\hv200\Desktop\programms\Chess\ConsoleChess\obj\Release\ConsoleChess.csproj.CopyComplete
 C:\Users\hv200\Desktop\programms\Chess\ConsoleChess\obj\Release\ConsoleChess.exe
 C:\Users\hv200\Desktop\programms\Chess\ConsoleChess\obj\Release\ConsoleChess.pdb
+C:\Users\hv200\Desktop\programms\GitHubRep\Chess8309\ChessLogic\ConsoleChess\bin\Release\ConsoleChess.exe.config
+C:\Users\hv200\Desktop\programms\GitHubRep\Chess8309\ChessLogic\ConsoleChess\bin\Release\ConsoleChess.exe
+C:\Users\hv200\Desktop\programms\GitHubRep\Chess8309\ChessLogic\ConsoleChess\bin\Release\ConsoleChess.pdb
+C:\Users\hv200\Desktop\programms\GitHubRep\Chess8309\ChessLogic\ConsoleChess\bin\Release\ChessLib.dll
+C:\Users\hv200\Desktop\programms\GitHubRep\Chess8309\ChessLogic\ConsoleChess\bin\Release\ChessLib.pdb
+C:\Users\hv200\Desktop\programms\GitHubRep\Chess8309\ChessLogic\ConsoleChess\obj\Release\ConsoleChess.csprojAssemblyReference.cache
+C:\Users\hv200\Desktop\programms\GitHubRep\Chess8309\ChessLogic\ConsoleChess\obj\Release\ConsoleChess.csproj.CoreCompileInputs.cache
+C:\Users\hv200\Desktop\programms\GitHubRep\Chess8309\ChessLogic\ConsoleChess\obj\Release\ConsoleChess.csproj.CopyComplete
+C:\Users\hv200\Desktop\programms\GitHubRep\Chess8309\ChessLogic\ConsoleChess\obj\Release\ConsoleChess.exe
+C:\Users\hv200\Desktop\programms\GitHubRep\Chess8309\ChessLogic\ConsoleChess\obj\Release\ConsoleChess.pdb

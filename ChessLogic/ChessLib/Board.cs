@@ -9,10 +9,10 @@ namespace ChessLib
     class Board
     {
         public string fen { get; private set; }
-        Figure[,] figures;
+        public Figure[,] figures { get; set; }
         public Color moveColor { get; private set; }
         public int moveNumber { get; private set; }
-        public bool castling {get; private set;}
+        public string castling {get; set;}
 
         public Board (string fen)
         {
@@ -30,8 +30,7 @@ namespace ChessLib
             if (parts.Length != 6) return;
             InitFigures(parts[0]);
             moveColor = (parts[1] == "b") ? Color.black : Color.white;
-            InitCastling(parts[2]);
-
+            castling = parts[2];
             moveNumber = int.Parse(parts[5]);
         }
 
@@ -47,16 +46,13 @@ namespace ChessLib
 
         }
 
-        void InitCastling(string data)
-        {
-            if (data.Contains(moveColor == Color.white ? "KQ" : "kq")) castling = true;
-        }
+        
 
         void GenerateFEN()
         {
-            fen = FenFigure() + " " + //0
-                (moveColor == Color.white? "w" : "b") + //1
-                " KQkq - 0 " + // 2 - 3 - 4
+            fen = FenFigure() + //0
+                (moveColor == Color.white? " w " : " b ") +//1
+                castling + " - 0 " + // 2 - 3 - 4
                 moveNumber.ToString();//5
         }
 
@@ -97,6 +93,8 @@ namespace ChessLib
         {
 
             Board next = new Board(fen);
+            next.castling = this.castling;
+            next.figures = this.figures;
             next.SetFigureAt(figureMoving.from, Figure.none);
             next.SetFigureAt(figureMoving.to, figureMoving.promotion == Figure.none ? figureMoving.figure : figureMoving.promotion);
             if (moveColor == Color.black)

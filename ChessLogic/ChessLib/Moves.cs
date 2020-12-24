@@ -53,6 +53,21 @@ namespace ChessLib
 
 				case Figure.whiteRook:
 				case Figure.blackRook:
+					//KQkq
+					if (figureMoving.figure == Figure.whiteRook)
+                    {
+						if (figureMoving.from.x == 0 && figureMoving.from.y == 0)
+							board.castling = board.castling.Remove(1,1).Insert(1,"-");
+						if (figureMoving.from.x == 7 && figureMoving.from.y == 0)
+							board.castling = board.castling.Remove(0, 1).Insert(1, "-");
+                    }
+					if (figureMoving.figure == Figure.blackRook)
+                    {
+						if (figureMoving.from.x == 0 && figureMoving.from.y == 7)
+							board.castling = board.castling.Remove(3, 1).Insert(1, "-");
+						if (figureMoving.from.x == 7 && figureMoving.from.y == 7)
+							board.castling = board.castling.Remove(2, 1).Insert(1, "-");
+					}
 					return (figureMoving.SignX == 0 || figureMoving.SignY == 0) && CanStraightMove();
 
 				case Figure.whiteBishop:
@@ -125,17 +140,43 @@ namespace ChessLib
 
         private bool CanKingMove()
 		{
-			if (board.castling == true && (figureMoving.AbsDeltaX == 2 && figureMoving.AbsDeltaY == 0))
-			{
-				
-				
-				return true;
+			if (figureMoving.from.x == 4 && figureMoving.from.y == 0)
+            {
+				if (board.castling.Contains("K") && (figureMoving.to.x == 6 && figureMoving.to.y == 0))
+                {
+					board.figures[7, 0] = Figure.none;
+					board.figures[5, 0] = Figure.whiteRook;
+					board.castling = board.castling.Remove(0, 2).Insert(0, "--");
+					return true;
+				}
+				if (board.castling.Contains("Q") && (figureMoving.to.x == 2 && figureMoving.to.y == 0))
+				{
+					board.figures[0, 0] = Figure.none;
+					board.figures[3, 0] = Figure.whiteRook;
+					board.castling = board.castling.Remove(0, 2).Insert(0, "--");
+					return true;
+				}
 			}
-			else
-			{
+			if (figureMoving.from.x == 4 && figureMoving.from.y == 7)
+            {
+				if (board.castling.Contains("k") && (figureMoving.to.x == 6 && figureMoving.to.y == 7))
+				{
+					board.figures[7, 7] = Figure.none;
+					board.figures[5, 7] = Figure.blackRook;
+					board.castling = board.castling.Remove(0, 2).Insert(0, "--");
+					return true;
+				}
+				if (board.castling.Contains("q") && (figureMoving.to.x == 2 && figureMoving.to.y == 7))
+				{
+					board.figures[0, 7] = Figure.none;
+					board.figures[3, 7] = Figure.blackRook;
+					board.castling = board.castling.Remove(2, 2).Insert(2, "--");
+					return true;
+				}
+			}
 				if (figureMoving.AbsDeltaX <= 1 && figureMoving.AbsDeltaY <= 1)
 					return true;
-			}
+			
 			return false;
 		}
 
