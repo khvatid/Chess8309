@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Xml.Serialization;
 using System.IO;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SignInScript : MonoBehaviour
 {
@@ -24,7 +25,8 @@ public class SignInScript : MonoBehaviour
         {
             serializer.Serialize(writer,player);
         }
-
+        SceneManager.LoadSceneAsync("MainMenuScene");
+        SceneManager.UnloadSceneAsync("SignInScene");
     }
 }
 

@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Xml.Serialization;
 using System.IO;
-using UnityEngine.UI;
 using TMPro;
 
 public class MainMenu : MonoBehaviour
