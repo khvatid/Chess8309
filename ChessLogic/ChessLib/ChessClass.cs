@@ -9,12 +9,14 @@ namespace ChessLib
     public class ChessClass
     {
         public string fen {get;private set;}
+        private bool CHECK;
         Board board;
         Moves moves;
         List<FigureMoving> allMoves;
         public ChessClass (string fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1")
         {
             this.fen = fen;
+            this.CHECK = false;
             board = new Board(fen);
             moves = new Moves(board);
         }
@@ -23,6 +25,7 @@ namespace ChessLib
         {
             this.board = board;
             this.fen = board.fen;
+            CHECK = false;
             moves = new Moves(board);
         }
 
@@ -34,7 +37,11 @@ namespace ChessLib
             if (!moves.CanMove(figureMoving))
                 return this;
             if (board.IsCheckAfterMove(figureMoving))
+            {
+                CHECK = true;
                 return this;
+            }
+                
             Board nextBoard = board.Move(figureMoving);
             ChessClass nextChess = new ChessClass(nextBoard);
             
@@ -74,6 +81,11 @@ namespace ChessLib
         public bool IsCheck()
         {
             return board.IsCheck();
+        }
+
+        public bool IsCheckAfter()
+        {
+            return CHECK;
         }
     }
 }

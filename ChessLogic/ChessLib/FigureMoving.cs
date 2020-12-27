@@ -8,7 +8,7 @@ namespace ChessLib
 {
     class FigureMoving
     {
-        public Figure figure { get; private set; }
+        public Figure figure { get; set; }
         public Square from { get; private set; }
         public Square to { get; private set; }
         public Figure promotion { get; private set; }

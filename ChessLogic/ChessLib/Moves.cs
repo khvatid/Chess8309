@@ -97,11 +97,16 @@ namespace ChessLib
         }
 
         private bool CanPawnGo(int stepY)
-        {
+        {	
+
 			if (board.GetFigureAt(figureMoving.to) == Figure.none)
 				if (figureMoving.AbsDeltaX == 0)
 					if (figureMoving.DeltaY == stepY)
+                    {
+						if (figureMoving.to.y == 7 || figureMoving.to.y == 0)
+							TransformPawn();
 						return true;
+                    }
 			return false;
         }
 
@@ -121,9 +126,26 @@ namespace ChessLib
 			if (board.GetFigureAt(figureMoving.to) != Figure.none)
 				if (figureMoving.AbsDeltaX == 1)
 					if (figureMoving.DeltaY == stepY)
+					{
+						if (figureMoving.to.y == 7 || figureMoving.to.y == 0)
+							TransformPawn();
 						return true;
+					}
 			return false;
         }
+
+		private void TransformPawn()
+        {
+			if (figureMoving.figure == Figure.whitePawn && figureMoving.to.y == 7)
+			{
+				figureMoving.figure = Figure.whiteQueen;
+			}
+			if (figureMoving.figure == Figure.blackPawn && figureMoving.to.y == 0)
+			{
+				figureMoving.figure = Figure.blackQueen;
+			}
+		}
+
 
         private bool CanStraightMove()
         {
