@@ -182,11 +182,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 55
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 5
+    m_MaxSize: 300
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 0
@@ -421,7 +421,6 @@ GameObject:
   - component: {fileID: 890347636}
   - component: {fileID: 890347638}
   - component: {fileID: 890347637}
-  - component: {fileID: 890347639}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -486,19 +485,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890347635}
   m_CullTransparentMesh: 0
---- !u!114 &890347639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890347635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 054ba1ca02ce24c4fb1bd121500198fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  field: {fileID: 1571913818}
 --- !u!1 &997327742
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,9 +647,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 890347639}
+      - m_Target: {fileID: 1951125342}
         m_TargetAssemblyTypeName: SignInScript, Assembly-CSharp
-        m_MethodName: AcceptButton
+        m_MethodName: ButtonAccept
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1185,6 +1171,7 @@ GameObject:
   - component: {fileID: 1951125340}
   - component: {fileID: 1951125339}
   - component: {fileID: 1951125338}
+  - component: {fileID: 1951125342}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1276,3 +1263,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1951125342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951125337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 054ba1ca02ce24c4fb1bd121500198fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  email: {fileID: 1571913818}
+  pass: {fileID: 577772315}

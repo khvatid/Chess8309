@@ -8,7 +8,8 @@ using ChessLib;
 public class Rules : MonoBehaviour
 {
    DragAndDrop drAdr;
-    ChessClass chess;
+   ChessClass chess;
+   public Text text;
    public Rules()
    {
        drAdr = new DragAndDrop();
@@ -23,7 +24,7 @@ public class Rules : MonoBehaviour
 
     void Update()
     {
-        if(drAdr.Action())
+        if(drAdr.Action() && !chess.IsCheckAfter())
         {
             string from = GetSquare(drAdr.pickPosition);
             string to = GetSquare(drAdr.dropPosition) ;
@@ -37,10 +38,10 @@ public class Rules : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (chess.IsCheck())
+        if (chess.IsCheckAfter())
         {
+            text.text = "КОНЕЦ ИГРЫ";
             Debug.Log("CHECK");
-            
         }
     }
 

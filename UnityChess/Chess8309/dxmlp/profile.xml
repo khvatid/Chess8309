@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Profile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <emailPlayer>scarpoint@gmail.com</emailPlayer>
+  <namePlayer>Namahage</namePlayer>
+  <passwordPlayer>ytrewq</passwordPlayer>
+  <victory>0</victory>
+  <defeat>0</defeat>
+</Profile>

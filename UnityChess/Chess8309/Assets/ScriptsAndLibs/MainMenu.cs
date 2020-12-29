@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Xml.Serialization;
 using System.IO;
+using System;
 using TMPro;
 
 public class MainMenu : MonoBehaviour
@@ -14,15 +15,15 @@ public class MainMenu : MonoBehaviour
     public void Start()
     {
         XmlSerializer serializer = new XmlSerializer(typeof(Profile));
-        using (TextReader reader = new StreamReader(@"C:\Users\hv200\Desktop\programms\Profile.xml"))
+        using (FileStream fs = new FileStream(Environment.CurrentDirectory + $"/dxmlp/profile.xml", FileMode.OpenOrCreate))
         {
-            player = (Profile)serializer.Deserialize(reader);
+            player = (Profile)serializer.Deserialize(fs);
         }
-        Text.text = player.id_player;
+        Text.text = player.namePlayer;
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene("GamePvPScence");
+        SceneManager.LoadScene("GamePvPScence",LoadSceneMode.Single);
     }
 
     public void QuitGame()
@@ -33,8 +34,7 @@ public class MainMenu : MonoBehaviour
 
     public void CloseFromGame()
     {
-        SceneManager.LoadScene("MainMenuScene");
-        SceneManager.UnloadSceneAsync(SceneManager.sceneCountInBuildSettings);
+        SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
     }
 
     public void OpenAccount()
