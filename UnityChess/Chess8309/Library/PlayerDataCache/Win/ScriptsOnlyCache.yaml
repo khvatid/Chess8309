@@ -2,15 +2,20 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - MainMenu
+    - PlayerInGame
     - Rules
+    - SignInScript
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
@@ -35,6 +40,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/GamePvPScence.unity:
@@ -54,30 +60,36 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1512}
+      Script: {instanceID: 1524}
     - Class: 114
-      Script: {instanceID: 1778}
+      Script: {instanceID: 1792}
     - Class: 114
-      Script: {instanceID: 1958}
+      Script: {instanceID: 2108}
     - Class: 114
-      Script: {instanceID: 2094}
+      Script: {instanceID: 2470}
     - Class: 114
-      Script: {instanceID: 2456}
+      Script: {instanceID: 2620}
     - Class: 114
-      Script: {instanceID: 2606}
+      Script: {instanceID: 2660}
     - Class: 114
-      Script: {instanceID: 2646}
+      Script: {instanceID: 2788}
     - Class: 114
-      Script: {instanceID: 2774}
+      Script: {instanceID: 2994}
     - Class: 114
-      Script: {instanceID: 2980}
+      Script: {instanceID: 3104}
     - Class: 114
-      Script: {instanceID: 3090}
+      Script: {instanceID: 3766}
     - Class: 114
-      Script: {instanceID: 3752}
+      Script: {instanceID: 4124}
+    - Class: 114
+      Script: {instanceID: 49170}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -109,6 +121,61 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1524}
+    - Class: 114
+      Script: {instanceID: 1792}
+    - Class: 114
+      Script: {instanceID: 1972}
+    - Class: 114
+      Script: {instanceID: 2108}
+    - Class: 114
+      Script: {instanceID: 2470}
+    - Class: 114
+      Script: {instanceID: 2620}
+    - Class: 114
+      Script: {instanceID: 2660}
+    - Class: 114
+      Script: {instanceID: 2788}
+    - Class: 114
+      Script: {instanceID: 2994}
+    - Class: 114
+      Script: {instanceID: 3104}
+    - Class: 114
+      Script: {instanceID: 4124}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/SignInScene.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
     - Class: 81
@@ -116,33 +183,33 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1512}
+      Script: {instanceID: 1524}
     - Class: 114
-      Script: {instanceID: 1778}
+      Script: {instanceID: 1792}
     - Class: 114
-      Script: {instanceID: 1958}
+      Script: {instanceID: 2100}
     - Class: 114
-      Script: {instanceID: 2086}
+      Script: {instanceID: 2108}
     - Class: 114
-      Script: {instanceID: 2094}
+      Script: {instanceID: 2470}
     - Class: 114
-      Script: {instanceID: 2456}
+      Script: {instanceID: 2620}
     - Class: 114
-      Script: {instanceID: 2606}
+      Script: {instanceID: 2788}
     - Class: 114
-      Script: {instanceID: 2646}
+      Script: {instanceID: 2838}
     - Class: 114
-      Script: {instanceID: 2774}
+      Script: {instanceID: 2994}
     - Class: 114
-      Script: {instanceID: 2980}
+      Script: {instanceID: 3104}
     - Class: 114
-      Script: {instanceID: 3090}
+      Script: {instanceID: 3656}
     - Class: 114
-      Script: {instanceID: 4108}
+      Script: {instanceID: 4124}
     - Class: 114
-      Script: {instanceID: 4220}
+      Script: {instanceID: 4236}
     - Class: 114
-      Script: {instanceID: 4550}
+      Script: {instanceID: 4568}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -594,7 +661,7 @@ ScriptsOnlyBuild:
     className: PositionAsUV1
   - hash:
       serializedVersion: 2
-      Hash: 754200893e9113b55b4512eb0a295d86
+      Hash: e4bcbc3c13e2d80dedc1ff3abb52e75a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SignInScript
@@ -624,7 +691,7 @@ ScriptsOnlyBuild:
     className: EventTrigger
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 59ff86bf036e03b66b265d7831b01a82
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Rules
@@ -892,8 +959,15 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: TMP_TextEventCheck
+  - hash:
+      serializedVersion: 2
+      Hash: e1bef290c74af29091f4755083cfb0a7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerInGame
   platform: 5
   scenePathNames:
+  - Assets/Scenes/SignInScene.unity
   - Assets/Scenes/MainMenuScene.unity
   - Assets/Scenes/GamePvPScence.unity
-  playerPath: C:/Users/scarp/Desktop/Chess8309.exe
+  playerPath: C:/Users/hv200/Desktop/programms/ChessExe/Chess8309.exe

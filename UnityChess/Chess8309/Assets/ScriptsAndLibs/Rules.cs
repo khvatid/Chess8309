@@ -12,10 +12,12 @@ public class Rules : MonoBehaviour
 {
    DragAndDrop drAdr;
    ChessClass chess;
-    gameSetting chessDB;
+   gameSetting chessDB;
+    Profile player;
    SqlConnectionStringBuilder builder;
    public Text text;
     public Text colorTXT;
+    bool checkSave;
    public Rules()
    {
        drAdr = new DragAndDrop();
@@ -25,11 +27,18 @@ public class Rules : MonoBehaviour
     void Start()
     {
         ShowFigures();
+        checkSave = true;
         XmlSerializer serializer = new XmlSerializer(typeof(gameSetting));
         using (FileStream fs = new FileStream(Environment.CurrentDirectory + $"/dxmlp/chessSetting.xml", FileMode.OpenOrCreate))
         {
             chessDB = (gameSetting)serializer.Deserialize(fs);
         }
+        serializer = new XmlSerializer(typeof(Profile));
+        using (FileStream fs = new FileStream(Environment.CurrentDirectory + $"/dxmlp/profile.xml", FileMode.OpenOrCreate))
+        {
+            player = (Profile)serializer.Deserialize(fs);
+        }
+
         builder = new SqlConnectionStringBuilder
         {
             DataSource = "192.168.31.180",
@@ -37,7 +46,7 @@ public class Rules : MonoBehaviour
             Password = "qwep[]ghjB1",
             InitialCatalog = "ChessDatabase"
         };
-        colorTXT.text = chessDB.color;
+        colorTXT.text += chessDB.color;
     }
 
 
@@ -93,11 +102,46 @@ public class Rules : MonoBehaviour
                 }
             }
         }
-        if (chess.IsCheckAfter())
+        if (chess.IsCheckAfter() && checkSave)
         {
-            text.text = "КОНЕЦ ИГРЫ";
+            checkSave = false;
+            int win = chess.GetColor() == chessDB.color ? 0 : 1;
+            if(win == 1)
+            {
+                player.victory++;
+                text.text = "You Win!";
+            }
+            else
+            {
+                player.defeat++;
+                text.text = "You Lose!";
+            }
+            using (SqlConnection sqlConnection = new SqlConnection(builder.ConnectionString))
+            {
+                sqlConnection.Open();
+                Debug.Log("db connect");
+                using (SqlCommand cmdSql = new SqlCommand
+                ("UPDATE Games SET status = 'done' WHERE  ID_game = " + chessDB.id_game, sqlConnection))
+                {
+                    cmdSql.ExecuteNonQuery();
+                    cmdSql.CommandText = "UPDATE Sides SET Result = " + win + " WHERE Game_ID ="
+                        + chessDB.id_game + " AND Player_ID = '" + player.emailPlayer +"';";
+                    cmdSql.Connection = sqlConnection;
+                    cmdSql.ExecuteNonQuery();
+                }
+            }
+            
+            XmlSerializer serializer = new XmlSerializer(typeof(Profile));
+            using (FileStream fs = new FileStream(Environment.CurrentDirectory +
+                $"/dxmlp/profile.xml", FileMode.Create))
+            {
+                serializer.Serialize(fs, player);
+            }
             Debug.Log("CHECK");
         }
+
+
+
 
     }
 
@@ -131,11 +175,59 @@ public class Rules : MonoBehaviour
         GameObject goSquare = GameObject.Find("" + y + x);
 
         var spriteFigure = goFigure.GetComponent<SpriteRenderer>();
+        
         var spriteBox = goBox.GetComponent<SpriteRenderer>();
         spriteBox.sprite = spriteFigure.sprite;
 
         goBox.transform.position = goSquare.transform.position;
 
+    }
+
+    public void LOSEBUTTON()
+    {
+        player.defeat++;
+        text.text = "You Lose!";
+        using (SqlConnection sqlConnection = new SqlConnection(builder.ConnectionString))
+        {
+            sqlConnection.Open();
+            Debug.Log("db connect");
+            using (SqlCommand cmdSql = new SqlCommand
+            ("UPDATE Games SET status = 'done' WHERE  ID_game = " + chessDB.id_game, sqlConnection))
+            {
+                cmdSql.ExecuteNonQuery();
+                cmdSql.CommandText = "UPDATE Sides SET Result = 1 WHERE = "+ chessDB.id_game+"AND Player_ID !='"+player.emailPlayer+"';";  
+            }
+        }
+        XmlSerializer serializer = new XmlSerializer(typeof(Profile));
+        using (FileStream fs = new FileStream(Environment.CurrentDirectory +
+            $"/dxmlp/profile.xml", FileMode.Create))
+        {
+            serializer.Serialize(fs, player);
+        }
+    }
+
+    public void CloseGame()
+    {
+        using (SqlConnection sqlConnection = new SqlConnection(builder.ConnectionString))
+        {
+            sqlConnection.Open();
+            Debug.Log("db connect");
+            using (SqlCommand cmdSql = new SqlCommand
+            ("SELECT ID_game, status FROM Games WHERE  ID_game = " + chessDB.id_game, sqlConnection))
+            {
+                using(SqlDataReader reader = cmdSql.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        if (reader.GetString(1) != "done")
+                        {
+                            LOSEBUTTON();
+                        }
+                    }
+                }
+            }
+        }
+        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("MainMenuScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 }
 

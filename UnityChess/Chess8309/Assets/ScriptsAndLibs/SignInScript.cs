@@ -12,7 +12,7 @@ public class SignInScript : MonoBehaviour
 {
     public InputField email;
     public InputField pass;
-
+    public Text log;
 
     SqlConnectionStringBuilder builder;
     void Start()
@@ -34,11 +34,13 @@ public class SignInScript : MonoBehaviour
             {
                 Sql.Open();
                 Debug.Log("db connect");
+                log.text = "db connect";
            
                 using (SqlCommand cmd = new SqlCommand("SELECT * FROM PlayerProfile " +
                       "WHERE passwordPlayer = '" + pass.text + "' AND emailPlayer = '" + email.text + "'", Sql))
                 {
                     Debug.Log("query complite");
+                    log.text += "\n query complite";
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
@@ -50,6 +52,7 @@ public class SignInScript : MonoBehaviour
                             user.victory = reader.GetInt32(3);
                             user.defeat = reader.GetInt32(4);
                             Debug.Log("ProfileAccept");
+                            log.text += "\n Profile Accept";
                             XmlSerializer serializer = new XmlSerializer(typeof(Profile));
                             using (FileStream fs = new FileStream(Environment.CurrentDirectory +
                                 $"/dxmlp/profile.xml", FileMode.Create))
@@ -66,6 +69,7 @@ public class SignInScript : MonoBehaviour
         catch(SqlException e)
         {
             Debug.Log(e.ToString());
+            log.text += e.ToString();
         }
         
 
