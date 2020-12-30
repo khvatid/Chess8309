@@ -18,7 +18,7 @@ public class SignInScript : MonoBehaviour
     void Start()
     {
         builder = new SqlConnectionStringBuilder();
-        builder.DataSource = "192.168.31.180";
+        builder.DataSource = "25.77.44.224";
         builder.UserID = "test";
         builder.Password = "qwep[]ghjB1";
         builder.InitialCatalog = "ChessDatabase";

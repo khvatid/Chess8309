@@ -41,7 +41,7 @@ public class Rules : MonoBehaviour
 
         builder = new SqlConnectionStringBuilder
         {
-            DataSource = "192.168.31.180",
+            DataSource = "25.77.44.224",
             UserID = "test",
             Password = "qwep[]ghjB1",
             InitialCatalog = "ChessDatabase"
