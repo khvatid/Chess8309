@@ -24,6 +24,8 @@ public class SignInScript : MonoBehaviour
         builder.InitialCatalog = "ChessDatabase";
     }
 
+  
+
     public void ButtonAccept()
     {
         try
@@ -50,10 +52,11 @@ public class SignInScript : MonoBehaviour
                             Debug.Log("ProfileAccept");
                             XmlSerializer serializer = new XmlSerializer(typeof(Profile));
                             using (FileStream fs = new FileStream(Environment.CurrentDirectory +
-                                $"/dxmlp/profile.xml", FileMode.OpenOrCreate))
+                                $"/dxmlp/profile.xml", FileMode.Create))
                             {
                                 serializer.Serialize(fs, user);
                             }
+                            
                             SceneManager.LoadSceneAsync("MainMenuScene", LoadSceneMode.Single);
                         }
                     }
@@ -93,3 +96,16 @@ public class Profile
     }
 }
 
+public class gameSetting
+{
+    public string color { get; set; }
+    public int id_game { get; set; }
+
+    public gameSetting()
+    {
+        this.id_game = -1;
+        this.color = "none";
+
+    }
+
+}

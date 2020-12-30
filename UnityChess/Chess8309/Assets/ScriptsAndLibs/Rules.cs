@@ -1,15 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Data.SqlClient;
 using UnityEngine;
 using UnityEngine.UI;
 using ChessLib;
+using System.Xml.Serialization;
+using System.IO;
 
 public class Rules : MonoBehaviour
 {
    DragAndDrop drAdr;
    ChessClass chess;
+    gameSetting chessDB;
+   SqlConnectionStringBuilder builder;
    public Text text;
+    public Text colorTXT;
    public Rules()
    {
        drAdr = new DragAndDrop();
@@ -19,30 +25,80 @@ public class Rules : MonoBehaviour
     void Start()
     {
         ShowFigures();
+        XmlSerializer serializer = new XmlSerializer(typeof(gameSetting));
+        using (FileStream fs = new FileStream(Environment.CurrentDirectory + $"/dxmlp/chessSetting.xml", FileMode.OpenOrCreate))
+        {
+            chessDB = (gameSetting)serializer.Deserialize(fs);
+        }
+        builder = new SqlConnectionStringBuilder
+        {
+            DataSource = "192.168.31.180",
+            UserID = "test",
+            Password = "qwep[]ghjB1",
+            InitialCatalog = "ChessDatabase"
+        };
+        colorTXT.text = chessDB.color;
     }
 
 
     void Update()
     {
-        if(drAdr.Action() && !chess.IsCheckAfter())
+        if(drAdr.Action())
         {
             string from = GetSquare(drAdr.pickPosition);
             string to = GetSquare(drAdr.dropPosition) ;
-            string figure = chess.GetFigureAt((int)(drAdr.pickPosition.x / 2.0), (int)(drAdr.pickPosition.y / 2.0)).ToString();
+            string figure = chess.GetFigureAt((int)(drAdr.pickPosition.x / 2.0),
+                (int)(drAdr.pickPosition.y / 2.0)).ToString();
             string move = figure + from + to;
             Debug.Log(move);
-            chess = chess.Move(move);
+            if( chessDB.color == chess.GetColor())
+            {
+                chess = chess.Move(move);
+                using (SqlConnection sqlConnection = new SqlConnection(builder.ConnectionString))
+                {
+                    sqlConnection.Open();
+                    Debug.Log("db connect");
+                    using (SqlCommand cmdSql = new SqlCommand
+                    ("UPDATE Games SET Fen = '" + chess.fen + "' WHERE ID_game = " + chessDB.id_game, sqlConnection))
+                    {
+                        cmdSql.ExecuteNonQuery();
+                    }
+                }
+            }             
             ShowFigures();
         }
+        
+        
     }
 
     private void FixedUpdate()
     {
+        if( chess.GetColor() != chessDB.color)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(builder.ConnectionString))
+            {
+                sqlConnection.Open();
+                Debug.Log("db connect");
+                using (SqlCommand cmdSql = new SqlCommand
+                ("SELECT ID_game ,Fen FROM Games WHERE ID_game =" + chessDB.id_game, sqlConnection))
+                {
+                    using (SqlDataReader reader = cmdSql.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            chess = new ChessClass(reader.GetString(1));
+                            ShowFigures();
+                        }
+                    }
+                }
+            }
+        }
         if (chess.IsCheckAfter())
         {
             text.text = "КОНЕЦ ИГРЫ";
             Debug.Log("CHECK");
         }
+
     }
 
     string GetSquare (Vector2 position)
