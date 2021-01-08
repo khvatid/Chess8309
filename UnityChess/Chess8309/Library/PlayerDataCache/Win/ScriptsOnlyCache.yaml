@@ -3,12 +3,14 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - MainMenu
     - PlayerInGame
+    - ProfilesMenu
     - Rules
     - SignInScript
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
@@ -66,29 +68,29 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1540}
+      Script: {instanceID: 1524}
     - Class: 114
-      Script: {instanceID: 1806}
+      Script: {instanceID: 1792}
     - Class: 114
-      Script: {instanceID: 2122}
+      Script: {instanceID: 2108}
     - Class: 114
-      Script: {instanceID: 2484}
+      Script: {instanceID: 2470}
     - Class: 114
-      Script: {instanceID: 2634}
+      Script: {instanceID: 2620}
     - Class: 114
-      Script: {instanceID: 2674}
+      Script: {instanceID: 2660}
     - Class: 114
-      Script: {instanceID: 2802}
+      Script: {instanceID: 2788}
     - Class: 114
-      Script: {instanceID: 3008}
+      Script: {instanceID: 2994}
     - Class: 114
-      Script: {instanceID: 3118}
+      Script: {instanceID: 3104}
     - Class: 114
-      Script: {instanceID: 3708}
+      Script: {instanceID: 3694}
     - Class: 114
-      Script: {instanceID: 3782}
+      Script: {instanceID: 3768}
     - Class: 114
-      Script: {instanceID: 4138}
+      Script: {instanceID: 4126}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -125,27 +127,80 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1540}
+      Script: {instanceID: 1524}
     - Class: 114
-      Script: {instanceID: 1806}
+      Script: {instanceID: 1792}
     - Class: 114
-      Script: {instanceID: 1986}
+      Script: {instanceID: 1972}
     - Class: 114
-      Script: {instanceID: 2122}
+      Script: {instanceID: 2108}
     - Class: 114
-      Script: {instanceID: 2484}
+      Script: {instanceID: 2470}
     - Class: 114
-      Script: {instanceID: 2634}
+      Script: {instanceID: 2620}
     - Class: 114
-      Script: {instanceID: 2674}
+      Script: {instanceID: 2660}
     - Class: 114
-      Script: {instanceID: 2802}
+      Script: {instanceID: 2788}
     - Class: 114
-      Script: {instanceID: 3008}
+      Script: {instanceID: 2994}
     - Class: 114
-      Script: {instanceID: 3118}
+      Script: {instanceID: 3104}
     - Class: 114
-      Script: {instanceID: 4138}
+      Script: {instanceID: 4126}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/ProfileInfo.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1524}
+    - Class: 114
+      Script: {instanceID: 1792}
+    - Class: 114
+      Script: {instanceID: 2470}
+    - Class: 114
+      Script: {instanceID: 2620}
+    - Class: 114
+      Script: {instanceID: 2660}
+    - Class: 114
+      Script: {instanceID: 2788}
+    - Class: 114
+      Script: {instanceID: 2994}
+    - Class: 114
+      Script: {instanceID: 3104}
+    - Class: 114
+      Script: {instanceID: 4126}
+    - Class: 114
+      Script: {instanceID: 18210}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -182,33 +237,33 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1540}
+      Script: {instanceID: 1524}
     - Class: 114
-      Script: {instanceID: 1806}
+      Script: {instanceID: 1792}
     - Class: 114
-      Script: {instanceID: 2114}
+      Script: {instanceID: 2100}
     - Class: 114
-      Script: {instanceID: 2122}
+      Script: {instanceID: 2108}
     - Class: 114
-      Script: {instanceID: 2484}
+      Script: {instanceID: 2470}
     - Class: 114
-      Script: {instanceID: 2634}
+      Script: {instanceID: 2620}
     - Class: 114
-      Script: {instanceID: 2802}
+      Script: {instanceID: 2788}
     - Class: 114
-      Script: {instanceID: 2852}
+      Script: {instanceID: 2838}
     - Class: 114
-      Script: {instanceID: 3008}
+      Script: {instanceID: 2994}
     - Class: 114
-      Script: {instanceID: 3118}
+      Script: {instanceID: 3104}
     - Class: 114
-      Script: {instanceID: 3670}
+      Script: {instanceID: 3656}
     - Class: 114
-      Script: {instanceID: 4138}
+      Script: {instanceID: 4126}
     - Class: 114
-      Script: {instanceID: 4250}
+      Script: {instanceID: 4238}
     - Class: 114
-      Script: {instanceID: 4580}
+      Script: {instanceID: 4570}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -964,9 +1019,16 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: TMP_TextEventCheck
+  - hash:
+      serializedVersion: 2
+      Hash: 584d8e8a3c3fb32e87aaba65c5715f75
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ProfilesMenu
   platform: 5
   scenePathNames:
   - Assets/Scenes/SignInScene.unity
   - Assets/Scenes/MainMenuScene.unity
   - Assets/Scenes/GamePvPScence.unity
-  playerPath: C:/Users/hv200/Desktop/programms/ChessELITE/local/Chess8309.exe
+  - Assets/Scenes/ProfileInfo.unity
+  playerPath: C:/Users/hv200/Desktop/programms/ChessExe/Chess8309.exe

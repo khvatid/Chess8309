@@ -64,9 +64,14 @@ namespace ChessLib
                 {
                     FigureMoving figureMoving = new FigureMoving(fs, to);
                     if (moves.CanMove(figureMoving))
-                        if(!board.IsCheckAfterMove(figureMoving))
+                       // if(!board.IsCheckAfterMove(figureMoving))
                             allMoves.Add(figureMoving);
                 }
+        }
+
+        public string GetColor()
+        {
+            return board.moveColor == Color.white ? "white" : "black";
         }
 
         public List<string> GetAllMoves ()

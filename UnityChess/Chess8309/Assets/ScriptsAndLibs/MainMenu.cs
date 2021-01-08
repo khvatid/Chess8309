@@ -127,6 +127,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadSceneAsync("GamePvPscence", LoadSceneMode.Single);
     }
 
+    public void PlayOffline()
+    {
+        SceneManager.LoadSceneAsync("GamePvEscence", LoadSceneMode.Single);
+    }
+
     public void QuitGame()
     {
         Debug.Log("QUIT COMPLITE");
@@ -134,7 +139,12 @@ public class MainMenu : MonoBehaviour
     }
     public void OpenAccount()
     {
-        SceneManager.LoadScene("SignInScene");
+        SceneManager.LoadScene("SignInScene", LoadSceneMode.Single);
+    }
+
+    public void ProfileButton()
+    {
+        SceneManager.LoadSceneAsync("ProfileInfo", LoadSceneMode.Single);
     }
    
   //  void OnDependencyChange(object sender, SqlNotificationEventArgs e)

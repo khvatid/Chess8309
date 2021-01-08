@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GamePvPScence.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/ProfileInfo.unity
+    guid: b0177f666f5357b4596b3f2f56a292c0
   m_configObjects: {}
